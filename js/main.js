@@ -10,6 +10,7 @@ new Vue ({
          <div>
             <app-header></app-header>
             <router-view></router-view>
+            <!-- hello limor -->
             <app-footer></app-footer>
         </div>
     `,
