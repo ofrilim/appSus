@@ -6,13 +6,11 @@ new Vue ({
     
     template: `
         <div>
-            <app-header></app-header>
             hel
             hey also!
         </div>
     `,
     components: {
-        appHeader
     }
 })
 
