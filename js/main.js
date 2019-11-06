@@ -8,6 +8,7 @@ new Vue ({
         <div>
             <app-header></app-header>
             hello
+            hey also!
         </div>
     `,
     components: {
