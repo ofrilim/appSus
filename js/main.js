@@ -7,6 +7,7 @@ new Vue ({
     template: `
         <div>
             <app-header></app-header>
+            hello
         </div>
     `,
     components: {
