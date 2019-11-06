@@ -10,7 +10,7 @@ new Vue ({
          <div>
             <app-header></app-header>
             <router-view></router-view>
-            <app-footer><app-footer>
+            <app-footer></app-footer>
         </div>
     `,
     components: {
