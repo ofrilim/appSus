@@ -1,10 +1,21 @@
-import cmpName from './apps/missBooks/cmps/0000.cmp.js';
+// import appHeader from './app-cmps/app-header.js';
+import missBooks from './apps/missBooks/cmps/0000.cmp.js';
+import missKeep from './apps/missKeep/cmps/0000.cmp.js'
+import missEmail from './apps/missEmail/cmps/0000.cmp.js';
 
 
 const myRoutes = [
     {
-        path: '/',
-        component: cmpName
+        path: '/books',
+        component: missBooks
+    },
+    {
+        path: '/keep',
+        component: missKeep
+    },
+    {
+        path: '/email',
+        component: missEmail
     }
 ]
 
