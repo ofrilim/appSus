@@ -2,9 +2,9 @@
 
 
 export default {
-    name: '',
+    name: 'emailFilter',
     template: `
-        <section class="">
+        <section class="email-filter">
 
         </section>
     `,

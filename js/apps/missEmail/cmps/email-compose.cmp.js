@@ -2,9 +2,9 @@
 
 
 export default {
-    name: '',
+    name: 'emailCompose',
     template: `
-        <section class="">
+        <section class="email-compose">
 
         </section>
     `,
