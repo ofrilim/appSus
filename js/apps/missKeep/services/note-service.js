@@ -1,105 +1,56 @@
 
-import {storageService} from './local-storage-service'
-import {makeId} from './util.service.js'
 
+export default {
+    getNotes,
+    removeNote,
+    saveNote,
+    addNote
 
-export const dogService = {
-    getDogs,
-    removeDog,
-    saveDog,
-    getDogById,
-    getEmptyDog,
-    getNextDogId
 }
 
-const STORAGE_KEY = 'DogsApp'
-var gDogs;
 
-getDogs();
 
-function getDogs() {
-    var dogs = storageService.load(STORAGE_KEY)
-    if (!dogs || dogs.length === 0) {
-        dogs = [_createDog('Toshi'), _createDog('BoTo'), _createDog('Pinchilada')]
-        storageService.store(STORAGE_KEY, dogs)
+
+var gNextId = 101;
+const gNotes = [_createNote('Bobi'), _createNote('Pinchilada', 'https://i.kym-cdn.com/entries/icons/mobile/000/006/026/NOTSUREIF.jpg'
+)]
+
+function getNotes() {
+    return gNotes;
+}
+
+function removeNote(noteId) {
+    var idx = gNotes.findIndex(note =>note.id === noteId);
+    gNotes.splice(idx, 1)
+}
+
+function _createNote(name,img) {
+    return {
+        id: gNextId++,
+        name,
+        img,
+
+    
     }
-
-    // Add the reviews property to all dogs
-    // another way: 
-    // Vue.set(this.dogs[2], 'reviews', [8, 9]);
-    dogs.forEach(dog => {
-        dog.reviews = []
-    });
-
-    gDogs = dogs;
-    // console.log(dogs);
-    window.dogs = gDogs;
-    // return gDogs;
-    return Promise.resolve(gDogs);
 }
-
-function getDogById(dogId) {
-    const dog = gDogs.find(dog => dog.id === dogId)
-    return Promise.resolve(dog);
-}
-
-function saveDog(dog) {
+function saveNote() {
     // NEW DOG
-    if (!dog.id) {
-        dog.id = makeId()
-        gDogs.unshift(dog);
+    if (!note.id) {
+        note.id = makeId()
+        gNotes.unshift(note);
     } else {
         // EXISTING DOG
-        const idx = gDogs.findIndex(currDog => currDog.id === dog.id);
-        gDogs.splice(idx, 1, dog);
+        const idx = gNotes.findIndex(currNote => currNote.id === note.id);
+        gNotes.splice(idx, 1, note);
         // The following line is not supported by Vue's reactivity system
-        // gDogs[idx] = dog;
+        // gNotes[idx] = note;
     }
-
-    storageService.store(STORAGE_KEY, gDogs)
-    return Promise.resolve(dog)
+    storageService.store(STORAGE_KEY, gNotes)
+    return Promise.resolve(note)
     // return Promise.reject('Big Badabum')
 }
 
-function removeDog(dogId) {
-    var idx = gDogs.findIndex(dog =>dog.id === dogId);
-    if (idx !== -1)  gDogs.splice(idx, 1)
-    storageService.store(STORAGE_KEY, gDogs)
-    return Promise.resolve();
+function addNote(txt,img) {
+    gNotes.unshift(_createNote(txt,img));
+
 }
-
-function getEmptyDog() {
-    return {
-        name: '',
-        weight: 0,
-         bio: '', 
-         nickNames: [], 
-         gender: 'F', 
-         features: [],
-         url : ''
-        };
-}
-
-function _createDog(name) {
-    var weight =  parseInt(Math.random() * 10) + 10
-    return {
-        id: makeId(),
-        name,
-        weight: weight,
-        bio : '',
-        nickNames: [],
-        gender: null,
-        features: [],
-        url: '' 
-    }
-}
-
-function getNextDogId(dogId) {
-    var idx = gDogs.findIndex(dog => dog.id === dogId);
-    idx++;
-    if ( idx === gDogs.length) idx = 0;
-    
-    return gDogs[idx].id;
-}
-
-

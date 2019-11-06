@@ -1,6 +1,6 @@
 // import appHeader from './app-cmps/app-header.js';
 import missBooks from './apps/missBooks/cmps/0000.cmp.js';
-import missKeep from './apps/missKeep/cmps/note-keep.cmp.js'
+import missKeep from './apps/missKeep/pages/note-keep-app.cmp.js'
 import missEmail from './apps/missEmail/cmps/0000.cmp.js';
 
 
