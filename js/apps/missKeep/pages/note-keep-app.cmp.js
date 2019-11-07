@@ -3,7 +3,7 @@
 import  noteList from "../cmps/note-list.cmp.js"
 import  notePreview from "../cmps/note-preview.cmp.js"
 import notesService  from "../services/note-service.js"
-
+import utilService from "../../../services/utils-service.js"
 
 Vue.config.productionTip = false;
 export default {

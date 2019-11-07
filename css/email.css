@@ -1,0 +1,55 @@
+ul {
+    padding: 0;
+}
+input, select {
+    padding: 8px;
+}
+
+.search-list-container {
+    width: 80vw;
+    background-color: rgb(212, 238, 212);
+}
+
+.email-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.email-preview {
+    background-color: #fff;
+    padding: 0 10px;
+}
+
+.email-menu {
+    border: 1px solid;
+    width: 17vw;
+    height: 200px;
+    background-color: rgb(236, 214, 218);
+}
+
+.app-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.email-search {
+    text-align: center;
+    margin: 10px;
+}
+
+.compose {
+    border: 1px solid;
+
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    border: 1px solid;
+}
+
+.email-app {
+    background-color: rgb(212, 209, 209);
+}

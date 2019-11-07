@@ -1,11 +1,9 @@
 
 
-export const utilsService = {
+export default {
     loadFromStorage,
     saveToStorage
-
 }
-
 
 function loadFromStorage(key) {
     const json = localStorage.getItem(key);
