@@ -1,5 +1,27 @@
 import bus from '../../services/event-bus.service.js'
 
+const colorPicker = {
+    props: ['colors'],
+    template: `
+    <div class="color-picker" @mouseleave="hideColorPicker" >
+        <div v-for="(color) in colors" :key="color">
+            <div class="color-circle" :style="{zIndex:'10', backgroundColor:'black'}" @click.stop="changeColor(color)" ></div>
+            <!-- <div class="color-circle" :style="getClass(color)" @click.stop="changeColor(color)" ></div> -->
+        </div>
+    </div>
+    `,
+    methods: {
+        hideColorPicker() {
+            this.$emit('hideColorPicker')
+        },
+        changeColor(color) {
+            this.$emit('changeColor', color)
+        },
+        getClass(color) {
+            return { 'backgroundColor': color }
+        }
+    },
+}
 
 export default {
     template: `
@@ -8,13 +30,18 @@ export default {
             <button v-if="currMode === 'list'" @click="editNote(note.id)" title="edit"> <i class="fas fa-pencil-alt" ></i></button>
             <button v-if="currMode === 'list'" @click="pinNote(note.id)" title="pin to starts"> <i class="fas fa-thumbtack"></i> </button>
             <button  v-if="currMode === 'list'" @click="previewNote(note.id)" title="preview"> <i class="fas fa-expand"></i> </button>
-            <button  v-if="currMode === 'edit'" @click="saveNotes()" title="save changes" class="save-btn-control">save changes </button>
+            <button v-if="currMode === 'list'" @mouseover="showColorPicker=!showColorPicker" title="Change color"><i class="fas fa-palette note-control-opt"></i></button>
+            <button  v-if="currMode === 'edit'" @click="saveNotes()" title="save changes" class="save-btn-control">Save changes </button>
         </section>
     `,
     props: ['note', 'currMode'],
+    components: {
+        colorPicker,    
+    },
     data() {
         return {
-            // noteId: this.note.id
+            colors: ['CornflowerBlue', 'yellow', 'orange', 'PaleGreen', 'LightGoldenRodYellow', 'tomato', 'LightGray', 'LightPink', 'white'],
+            showColorPicker: false,
         }
     },
     created() {
@@ -41,6 +68,12 @@ export default {
             bus.$emit('saveNotes');
             // console.log('delete', noteId);
         },
+        changeColor(color) {
+            this.note.bgColor = color
+            bus.$emit('saveNotes', this.note);
+        },
+        
+        
         // changeColor(color) {
         //     // bus.$emit('saveNotes');
         //     console.log('color', color);

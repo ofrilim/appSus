@@ -3,6 +3,8 @@
 import noteTxt from './dynamic-cmps/note-text.cmp.js'
 import noteImg from './dynamic-cmps/note-img.js'
 import noteAudio from './dynamic-cmps/note-audio.cmp.js'
+import noteVideo from './dynamic-cmps/note-video.cmp.js'
+
 
 
 export default {
@@ -24,6 +26,7 @@ export default {
     components: {
         noteTxt,
         noteImg,
-        noteAudio
+        noteAudio,
+        noteVideo
     }
 }
