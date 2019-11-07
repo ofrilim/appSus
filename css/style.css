@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import url('./keep.css');
 @import url('./header.css');
 
@@ -11,3 +12,18 @@
   }
 
 
+=======
+
+
+ul {
+    list-style: none;
+}
+
+li {
+    border: 1px solid;
+}
+
+.email-app {
+    background-color: rgb(212, 209, 209);
+}
+>>>>>>> 1d24e0d61bad0c57c1146b3da036b08c1c658d24
