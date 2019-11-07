@@ -10,7 +10,9 @@ function getNoteTxt() {
     return {
         noteType: '',
         id: utilService.makeId(6),
-        data: {
+        styles: {
+			backgroundColor: '#ffffff',
+		},        data: {
             title: '',
             txt: ''
         }
@@ -21,7 +23,10 @@ function getNoteVidAudImg() {
     return {
         noteType: '',
         id: utilService.makeId(6),
-        data: {
+        styles: {
+			backgroundColor: 'black',
+        },   
+             data: {
             title: '',
             src: ''
         }
@@ -31,9 +36,19 @@ function getNoteList() {
     return {
         noteType: '',
         id: utilService.makeId(6),
-        data: {
+        styles: {
+			backgroundColor: '#ffffff',
+		},        data: {
             title: '',
             todo: [
+                {
+                    txt: '',
+                    isDone: false
+                },
+                {
+                    txt: '',
+                    isDone: false
+                }
             ]
         }
     }
@@ -59,6 +74,9 @@ function getNoteType(noteType) {
         case 'note-audio':
             note = getNoteVidAudImg();
             break;
+        case 'note-video':
+            note = getNoteVidAudImg();
+            break;
         case 'note-list':
             note = getNoteList();
             break;
@@ -75,9 +93,11 @@ function query() {
         notes = [
             { noteType: 'note-txt', id: utilService.makeId(6), data: { title: 'sprint 3', txt: 'working on note service' } },
             { noteType: 'note-img', id: utilService.makeId(6), data: { title: 'fun reading', src: 'https://a.thumbs.redditmedia.com/8Tym4EAD4XirLemV3iBYX1Q0agaiH1cBhw4A8rKIyt4.png' } },
-            { noteType: 'note-img', id: utilService.makeId(6), data: { title: 'fun what', src: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Rick_Sanchez.png/160px-Rick_Sanchez.png' } },
-            { noteType: 'note-txt', id: utilService.makeId(6), data: { title: 'movie night', txt: 'after the course' } },
             { noteType: 'note-audio', id: utilService.makeId(6), data: { title: 'good song', src: 'http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3' } },
+            { noteType: 'note-video', id: utilService.makeId(6), data: { title: 'video is working', src: 'http://techslides.com/demos/sample-videos/small.mp4' } },
+            { noteType: 'note-img', id: utilService.makeId(6), data: { title: 'fun what', src: 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Rick_Sanchez.png/160px-Rick_Sanchez.png' } },
+            { noteType: 'note-txt', id: utilService.makeId(6), data: { title: 'todo list', txt: 'testing' ,todo:[{txt:'testing',isDone:false},{txt:'bla',isDone:false}] } },
+            { noteType: 'note-txt', id: utilService.makeId(6), data: { title: 'Angie', txt: 'Angie, Angie When will those clouds all disappear Angie, Angi Where will it lead us from here With no loving in our soul And no money in our coat You cant say were satisfied But Angie, Angie' } },
             
         ];
     }
@@ -100,6 +120,7 @@ function pinNote(id) {
     var note = notes.splice(noteIdx, 1)[0];
     console.log('pinNote --- ', note);
     notes.unshift(note);
+    // note.styles.backgroundColor = 'orange'
     storageService.store(NOTES_KEY, notes);
     return Promise.resolve();
 }

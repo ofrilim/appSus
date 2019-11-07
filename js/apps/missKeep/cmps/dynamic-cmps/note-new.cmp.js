@@ -2,20 +2,25 @@
 
 import keepService from '../../services/note-service.js'
 import noteTxt from '../dynamic-cmps/note-text.cmp.js'
+import noteTodo from '../dynamic-cmps/note-todol.cmp.js'
 import noteImg from '../dynamic-cmps/note-img.js'
 import noteAudio from '../dynamic-cmps/note-audio.cmp.js'
+import noteVideo from '../dynamic-cmps/note-video.cmp.js'
+import noteEdit from '../dynamic-cmps/note-edit.cmp.js'
 import bus from '../../services/event-bus.service.js'
 
 
 export default {    
     template: `
             <section class="notes-new">
-                <h3>- Add New -</h3>
+                <h1>Add a new note...</h1>
                 <div>
                     <button @click="getNote('note-txt')" title="text"><i class="fas fa-font"></i></button>
                     <button @click="getNote('note-img')" title="image"><i class="far fa-image"></i></button>
                     <button @click="getNote('note-audio')" title="audio"><i class="fas fa-volume-up"></i></button>
-                    
+                    <button @click="getNote('note-txt')" title="text"><i class="far fa-list-alt"></i></button>
+                    <button @click="getNote('note-video')" title="video"><i class="fas fa-video"></i></button>
+
                     <button v-if="note && newMode" @click="closeNew()" title="discard">discard</button>
                     <button v-if="note && newMode" @click="addNote()" title="save">save</button>
                 </div>
@@ -67,7 +72,10 @@ export default {
     components: {
         noteTxt,
         noteImg,
-        noteAudio
+        noteAudio,
+        noteVideo,
+        noteEdit,
+        noteTodo
     }
 }
 
