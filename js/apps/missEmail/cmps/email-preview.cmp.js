@@ -12,7 +12,6 @@ export default {
                     <span class="sentAt">{{email.sentAt}}</span>
                 </p>
                 <p class="email-content" v-show="isRead">{{email.body}}</p>
-                
             </li>
         </section>
     `,

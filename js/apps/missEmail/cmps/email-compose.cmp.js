@@ -4,8 +4,8 @@
 export default {
     name: 'emailCompose',
     template: `
-        <section class="email-compose">
-
+        <section class="email-compose container">
+        <h1>inside compose component!</h1>
         </section>
     `,
     data() {
