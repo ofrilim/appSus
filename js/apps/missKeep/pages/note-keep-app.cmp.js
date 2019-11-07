@@ -1,81 +1,82 @@
-"use strict";
 
-import  noteList from "../cmps/note-list.cmp.js"
-import  notePreview from "../cmps/note-preview.cmp.js"
-import notesService  from "../services/note-service.js"
-import utilService from "../../../services/utils-service.js"
+import bus from '../services/event-bus.service.js'
+import keepService from '../services/note-service.js';
+import noteList from '../cmps/note-list.cmp.js'
+// import noteFilter from '../cmps/note-filter-cmp.js';
+import noteNew from '../cmps/dynamic-cmps/note-new.cmp.js';
 
-Vue.config.productionTip = false;
 export default {
-  name: 'keep-app',
-  components: {
-    noteList,
-    notePreview,
-    notesService,
-},
-
-  template: `
-    <section>
-    <h1 class="header">Keep App</h1>
-    <form @submit.prevent="addingNote">
-        <input  placeholder="Take a note" v-model="text" class="take-a-note" >
-        <button>Add</button>
-    </form>
-    <note-list :notes="notes" ></note-list>
-
-
-</section>
+    template: `
+    <section class="keep-home">
+        
+        <!-- <note-filter @filtered="setFilter"></note-filter> -->
+        <note-new ></note-new>
+        
+        <note-list :notes="notesToShow" @selected="selectNote"></note-list>
+        
+    </section>  
     `,
-  data() {
-    return {
-        text: 'nimrod',
-        selectedNote: null,
-      notes: notesService.getNotes(),
-    } 
-  },
-  created() {
-//     console.log(notesService.getNotes(), 'testing'),
-    // console.log(notesService.addNote('testing'), 'testing adding')
-  },
-
-  methods: {
-    selectNote(selectedNoteId) {
-      console.log('in the app')
-      notesService.getNoteById(selectedNoteId)
-      .then(note=>this.selectedNote=note)
+    data() {
+        return {
+            notes: [],
+            selectedtNote: null,
+            currView: null,
+            // filter: null
+        }
     },
-    // saveNote() {
-    //     notesService.saveNote(this.noteToEdit)
-    //         .then(savedNote => {
-    //             const msg = {
-    //                 txt: `${savedNote.name} Saved Succefully`,
-    //                 type: 'success'
-    //             }
-    //             eventBus.$emit('show-msg', msg);
-    //             // alert('Success! id:' + savedNote.id);
-    //             this.$router.push('/note');
-    //         })
-    //         .catch(err => {
-    //             const msg = {
-    //                 txt: `NOT Saved (${err})`,
-    //                 type: 'error'
-    //             }
-    //             eventBus.$emit('show-msg', msg);
-    //         })
-    // },
-    addingNote() {
-        notesService.addNote(this.text)
+    created() {
+        keepService.query()
+            .then(notes => this.notes = notes),
 
-    
+            bus.$on('deleteNote', noteId => {
+                this.$router.push('/keep');
+                keepService.deleteNote(noteId);
+            }),
+            bus.$on('editNote', noteId => {
+                this.$router.push(`/keep/edit/${noteId}`);
+            }),
+            bus.$on('previewNote', noteId => {
+                this.$router.push(`/keep/${noteId}`);
+            }),
+            bus.$on('pinNote', noteId => {
+                keepService.pinNote(noteId);
+            }),
+            bus.$on('saveNotes', () => {
+                keepService.store();
+                this.$router.push('/keep');
+            }),
+            bus.$on('addNote', note => {
+                console.log('addNote from main app cmp ', note);
+                keepService.addNote(note);
+            })
+    },
+    computed: {
+        notesToShow() {
+            console.log('notesToShow - ', this.notes);
+            return this.notes;
+            // if (!this.filter)
+            // else return this.notes.filter(note =>
+            //     note.data.title.includes(this.filter.title))
+        }
+
+    },
+    methods: {
+        selectNote(noteId) {
+            if (!noteId) this.selectedNote = null;
+            else {
+                this.selectedNote = this.notes.find(currNote => currNote.id === noteId);
+            }
+        },
+
+        // setFilter(filter) {
+        //     this.filter = filter;
+        // },
+
+    },
+    components: {
+        noteList,
+        // noteFilter,
+        noteNew
     }
-  },
-  computed: {
-    notesToShow() {
-      if (!this.filterBy) return this.notes;
-      let regex = new RegExp(`${this.filterBy.name}`, "i");
-      var tempBooks = this.books.filter(book => regex.test(book.title));
-      return tempBooks.filter(
-        book => book.listPrice.amount <= this.filterBy.price
-      );
-    }
-  }}
+}
+
