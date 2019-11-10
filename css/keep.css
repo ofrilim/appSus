@@ -10,8 +10,7 @@
   align-items: center;
   object-fit: cover;
 }
-.fas,
-.far {
+.controls .fas, .controls .far {
   font-size: 20px;
   cursor: pointer;
 }
@@ -190,4 +189,12 @@
 
 .defalt {
   background-color: white;
+}
+
+.search {
+padding:5px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 0 auto;
 }

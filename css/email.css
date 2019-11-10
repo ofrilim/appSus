@@ -1,4 +1,4 @@
-* {
+.email-app * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -141,7 +141,7 @@ button {
 .fas.fa-share-square, .fas.fa-envelope-open {
     margin-right: 10px;
 }
-.fas.fa-expand {
+.email-content-header .fas.fa-expand {
     margin-right: 20px;
 }
 .onHover {
