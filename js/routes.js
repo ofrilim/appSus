@@ -8,10 +8,17 @@ import emailExpand from './apps/missEmail/cmps/email-expand.cmp.js';
 import emailTrash from './apps/missEmail/cmps/email-trash.cmp.js';
 import notePreview from './apps/missKeep/cmps/note-preview.cmp.js'
 import noteEdit from './apps/missKeep/cmps/dynamic-cmps/note-edit.cmp.js'
+import home from './app-cmps/home.cmp.js'
+
+
 
 
 
 const myRoutes = [
+    {
+        path: '/',
+        component: home
+    },
     {
         path: '/books',
         component: missBooks

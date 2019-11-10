@@ -12,7 +12,6 @@ import bus from '../../services/event-bus.service.js'
 export default {    
     template: `
             <section class="notes-new">
-                <h1>Add a new note...</h1>
                 <div>
                     <button @click="getNote('note-txt')" title="text"><i class="fas fa-font"></i></button>
                     <button @click="getNote('note-img')" title="image"><i class="far fa-image"></i></button>

@@ -37,12 +37,18 @@
   object-fit: contain;
   transition: 0.3s ease;
   transition: all 0.3s ease;
+  break-inside: avoid;
+
 }
 
+.note-audio {
+  height: 100px;
+}
 .note:hover {
   box-shadow: 0 0 10px rgb(125, 155, 170);
   transform: translate(0, -5px);
   z-index: 1;
+  
 }
 .img-small {
   max-width: 160px;
@@ -50,12 +56,19 @@
 }
 
 .note-list {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  column-count: 5;
 }
+@media (max-width: 850px) {
+  .note-list {
+    column-count: 3;
+  }
+}
+@media (max-width: 650px) {
+  .note-list {
+    column-count: 2;
+  }
+}
+
 .note-preview {
   padding: 10px;
 }
@@ -200,4 +213,9 @@
   padding: 8px;
   font-size: inherit;
   border: 1px solid rgb(243, 237, 237);
+}
+
+.color-input {
+  position: absolute;
+  bottom: 10000px;
 }

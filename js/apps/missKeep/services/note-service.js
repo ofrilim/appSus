@@ -59,9 +59,31 @@ function query() {
   if (!notes || notes.length === 0) {
     notes = [
       {
+        noteType: "note-img",
+        id: utilService.makeId(6),
+        color: '',
+        isPinned: true,
+        data: {
+          title: "banana for Yaron",
+          src:
+            "http://giphygifs.s3.amazonaws.com/media/IB9foBA4PVkKA/giphy.gif"
+        }
+      },
+      {
+        noteType: "note-audio",
+        id: utilService.makeId(6),
+        color: 'lightgray',
+        isPinned: false,
+        data: {
+          title: "Good song",
+          src:
+            "http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3"
+        }
+      },
+      {
         noteType: "note-txt",
         id: utilService.makeId(6),
-        color: 'greenyellow',
+        color: '#81CDFF',
         isPinned: false,
         data: {
           title: "sprint 3",
@@ -69,9 +91,90 @@ function query() {
         }
       },
       {
+        noteType: "note-txt",
+        id: utilService.makeId(6),
+        color: '#98ae77',
+        isPinned: false,
+        data: {
+          title: "Anthony Parker",
+          txt: "Anthony Michael Parker (born June 19, 1975) is an American retired professional basketball player who played in the National Basketball Association (NBA), as well as in Italy and Israel."
+        }
+      },
+      {
+        noteType: "note-video",
+        id: utilService.makeId(6),
+        color: '',
+        isPinned: false,
+        data: {
+          title: "Video is working",
+          src: "http://techslides.com/demos/sample-videos/small.mp4"
+        }
+      },
+      {
         noteType: "note-img",
         id: utilService.makeId(6),
-        color: 'green',
+        color: '#e9e9e942',
+        isPinned: false,
+        data: {
+          title: "Appsus sprint",
+          src:
+            "https://66.media.tumblr.com/764e022a85e13e81dce7f1caa05f1fba/tumblr_ou8keljTZS1wr8ohqo1_250.png"
+        }
+      },
+      {
+        noteType: "note-txt",
+        id: utilService.makeId(6),
+        color: '#D4AFB9',
+        isPinned: false,
+        data: {
+          title: "Filling up the notes",
+          txt: "Vue.js features an incrementally adoptable architecture that focuses on declarative rendering and component composition"
+        }
+      },
+      {
+        noteType: "note-txt",
+        id: utilService.makeId(6),
+        color: '#98ae77',
+        isPinned: false,
+        data: {
+          title: "sprint 3",
+          txt: "working on note service"
+        }
+      },
+      {
+        noteType: "note-txt",
+        id: utilService.makeId(6),
+        color: '#D4AFB9',
+        isPinned: false,
+        data: {
+          title: "sprint 3",
+          txt: "working on note service"
+        }
+      },
+      {
+        noteType: "note-txt",
+        id: utilService.makeId(6),
+        color: '#98ae77',
+        isPinned: false,
+        data: {
+          title: "sprint 3",
+          txt: "working on note service"
+        }
+      },
+      {
+        noteType: "note-txt",
+        id: utilService.makeId(6),
+        color: '#98ae77',
+        isPinned: false,
+        data: {
+          title: "lorem?",
+          txt: "Apps have become a hot business opportunity over the past few years. With everything from silly games to complex software"
+        }
+      },
+      {
+        noteType: "note-img",
+        id: utilService.makeId(6),
+        color: '#e9e9e942',
         isPinned: false,
         data: {
           title: "fun reading",
@@ -100,17 +203,7 @@ function query() {
           src: "http://techslides.com/demos/sample-videos/small.mp4"
         }
       },
-      {
-        noteType: "note-img",
-        id: utilService.makeId(6),
-        color: 'blue',
-        isPinned: false,
-        data: {
-          title: "Fun what",
-          src:
-            "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Rick_Sanchez.png/160px-Rick_Sanchez.png"
-        }
-      },
+    
       {
 
       },
@@ -141,7 +234,7 @@ function query() {
       {
         noteType: "note-txt",
         id: utilService.makeId(6),
-        color: 'blue',
+        color: '#ececf0',
         isPinned: false,
         data: {
           title: "Angie",

@@ -10,7 +10,7 @@ export default {
     <section class="keep-home">
         <note-filter @filtered="setFilter"></note-filter>
         <note-new ></note-new>
-        <note-list :notes="notesToShow" @selected="selectNote"></note-list>
+        <note-list :notes="notesToShow" @selected="selectNote" ></note-list>
     </section>  
     `,
     data() {

@@ -1,6 +1,10 @@
 
+
+
+
+
 export default {
-    name: 'appFooter',
+    name: 'appHome',
     template: `
        <section class="home-main">
        </section>

@@ -1,27 +1,5 @@
 import bus from '../../services/event-bus.service.js'
 
-const colorPicker = {
-    props: ['colors'],
-    template: `
-    <div class="color-picker" @mouseleave="hideColorPicker" >
-        <div :style="{'background-color': note.color}" v-for="(color) in colors" :key="color">
-            <div class="color-circle" :style="{zIndex:'10', backgroundColor:'black'}" @click.stop="changeColor(color)" ></div>
-            <!-- <div class="color-circle" :style="getClass(color)" @click.stop="changeColor(color)" ></div> -->
-        </div>
-    </div>
-    `,
-    methods: {
-        hideColorPicker() {
-            this.$emit('hideColorPicker')
-        },
-        changeColor(color) {
-            this.$emit('changeColor', color)
-        },
-        getClass(color) {
-            return { 'backgroundColor': color }
-        }
-    },
-}
 
 export default {
     template: `
@@ -30,19 +8,17 @@ export default {
             <button v-if="currMode === 'list'" @click="editNote(note.id)" title="Edit"> <i class="fas fa-pencil-alt" ></i></button>
             <button v-if="currMode === 'list'"  @click="pinNote(note.id)" title="Pin to starts">  <i class="fas fa-thumbtack"></i> </button>
             <button  v-if="currMode === 'list'" @click="previewNote(note.id)" title="Preview"> <i class="fas fa-expand"></i> </button>
-            <button v-if="currMode === 'list'" @click="showColorPicker=!showColorPicker" title="Change color"><i class="fas fa-palette note-control-opt"></i></button>
+            <input v-if="currMode === 'list'" :id="note.id" type="color" @change="emitChangeColor" class="color-input" title="Change color"/>
+            <label :for="note.id"><i class="fas fa-palette"></i></label>
             <button  v-if="currMode === 'edit'" @click="saveNotes()" title="Save changes" class="save-btn-control">Save changes </button>
         </section>
     `,
     props: ['note', 'currMode'],
     components: {
-        colorPicker, 
         bus   
     },
     data() {
         return {
-            colors: ['CornflowerBlue', 'yellow', 'orange', 'PaleGreen', 'LightGoldenRodYellow', 'tomato', 'LightGray', 'LightPink', 'white'],
-            showColorPicker: false,
             isPinned: false
         }
     },
@@ -71,11 +47,14 @@ export default {
             bus.$emit('saveNotes');
             // console.log('delete', noteId);
         },
-        changeColor(color) {
-            this.note.color = color
-            bus.$emit('saveNotes', this.note);
+        // changeColor(color) {
+        //     this.note.color = color
+        //     bus.$emit('saveNotes', this.note);
+        // },
+        emitChangeColor() {
+            console.log ('this note color', this.note)
+            bus.$emit('changeColor', this.note)
         },
-        
         
         // changeColor(color) {
         //     // bus.$emit('saveNotes');

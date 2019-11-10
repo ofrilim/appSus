@@ -85,3 +85,16 @@
     object-fit: contain;
     border: 1px solid rgb(7, 6, 6, 0.3);
 }
+
+
+.background-color {
+    color: #fff;
+}
+
+.home-main {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../img/back.jpg"); 
+     background-repeat: no-repeat;
+    background-size: cover;
+}
