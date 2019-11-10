@@ -19,8 +19,6 @@ export default {
         }
     },
     created() {
-        // console.log('email is created:', this.emails)
-        // eventBus.$on('emailsToShow', emails => this.emails = emails);
 
     },
     components: {

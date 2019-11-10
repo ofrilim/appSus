@@ -6,12 +6,10 @@ export default {
        <section class="app-header">
             <nav>
             <h1 class="app-title" ref="apptitle">Appsus</h1>
-            <div class="header-cont"
-                <router-link to="/"><i class="fas fa-home"></i> Home</router-link> |
-                <router-link to="/books"><i class="fas fa-book"></i> Books</router-link> |
-                <router-link to="/keep"><i class="fas fa-sticky-note"></i> Keep</router-link> |
-                <router-link to="/email"><i class="fas fa-envelope-open"></i> Email</router-link> |
-            </div>
+                <router-link to="/">Home</router-link> |
+                <router-link to="/books">Books</router-link> |
+                <router-link to="/keep">Keep</router-link> |
+                <router-link to="/email/inbox">Email</router-link> |
                 <nav-bar></nav-bar>
                 <img class="user-avatar" src="./img/user.jpeg" alt="user" @click="clearStorage">
 

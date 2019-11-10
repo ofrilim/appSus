@@ -9,7 +9,7 @@ import emailList from './email-list.cmp.js';
 export default {
     name: 'emailApp',
     template: `
-        <section class="email-app">
+        <section class="email-app" v-if="emails">
             <email-search @searchBy="filterEmails"></email-search>
             <div class="app-container">
                 <email-menu :unReadCount="countUnRead"></email-menu> 
