@@ -3,16 +3,16 @@ import utilsService from "../../../services/utils-service.js";
 
 export default {
     getEmails,
-    createEmail
+    createEmail,
+    addNewEmail,
+    updateStorage,
+    deleteEmail,
+    getEmailById
 }
 
-
 const STORAGE_KEY = 'missEmailApp'
-
-
 var gEmails;
 var gNextId = Date.now();
-//  = createEmails();
 
 function createEmail(from, subject, body) {
     return {
@@ -27,10 +27,10 @@ function createEmail(from, subject, body) {
 }
 
 function createEmails() {
-    return [createEmail('Jessica', 'Sprint', 'Great aplication to develop!'),
-                  createEmail('Laura', 'Dinner on Friday', 'long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has'),
-                  createEmail('Braz', 'Dancing in Brazil', 'long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has'),
-                  createEmail('Romina', 'Class', 'long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has')];
+    return [createEmail('Jessica Landman', 'Sprint', 'Great aplication to develop!'),
+                  createEmail('Laura Espaniol', 'Dinner on Friday', 'Hey my Friend! It was great to see you! I wanted to invite you & Ishay for dinner in our place! Let me know if you will be available next Friday. Bessos!'),
+                  createEmail('Braz Dos Santos', 'Dancing in Brazil', 'Lorem ipsum long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has'),
+                  createEmail('Romina Hidalgo', 'Class', 'Mi nombre es Romina Hidalgo y soy Profesora de Zouk, bailarina y organizadora de eventos. Boenos Aires ZoukCongress 2015 del 9 al 12 de otubre bsasdancecongress@gmail.com Eventos: shows para fiestas de 15, casamientos, empresariales, promotoras, discos, etc Contacto: romina2106@gmail.com')];
 }
 
 function getEmails() {
@@ -44,17 +44,31 @@ function getEmails() {
     return Promise.resolve(gEmails)
 }
 
-function getCurrTime() {
-    // var time = new Date().toJSON().slice(14,19);
-    // if (time[0] + time[1] < 12) time = time + ' AM'
-    // else time = time + ' PM'
-    // return time;
+function addNewEmail(email) {
+    gEmails.push(email);
+    updateStorage()
+}
 
+function deleteEmail(emailId) {
+    var emailIdx = gEmails.findIndex(email => email.id === emailId)
+    gEmails.splice(emailIdx, 1)
+    updateStorage()
+}
+
+function getEmailById(emailId) {
+    // console.log(emailId)
+    var emailToExpand = gEmails.find(email => email.id === emailId)
+    // console.log('inside the service, the email you wish is:', emailToExpand)
+    return Promise.resolve(emailToExpand);
+}
+
+function updateStorage() {
+    utilsService.saveToStorage(STORAGE_KEY, gEmails)
+}
+function getCurrTime() {
     var date = new Date()
     var hours = date.getHours();
     var minutes = "0" + date.getMinutes();
-    var formattedTime = hours + ':' + minutes.substr(-2);
-    if (formattedTime[0] + formattedTime[1] < 12) formattedTime = formattedTime += ' AM'
-    else formattedTime = formattedTime += ' PM'
-    return formattedTime;
+    var AMorPM = hours < 12 ? "AM" : "PM"; 
+    return hours + ':' + minutes.substr(-2) + AMorPM;
 }

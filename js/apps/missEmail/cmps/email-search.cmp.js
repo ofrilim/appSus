@@ -2,10 +2,10 @@
 
 
 export default {
-    name: 'emaiSearch',
+    name: 'emailSearch',
     template: `
         <section class="email-search">
-            <input type="text" placeholder="Search mail" @input="onFilterEmails" v-model="searchBy.subject" />
+            <input type="text" placeholder="Search mail" @input="onFilterEmails" v-model="searchBy.txt" />
             <select v-model="searchBy.options" @change="onFilterEmails">
                 <option value="All">All</option>
                 <option value="Read">Read</option>
@@ -16,14 +16,14 @@ export default {
     data() {
         return {
             searchBy: {
-                subject: '',
+                txt: '',
                 options: 'All'
             }
         }
     },
-    created() {
-
-    },
+    // created() {
+    //     this.$emit('searchBy', this.searchBy);
+    // },
     methods: {
         onFilterEmails() {
             this.$emit('searchBy', this.searchBy)

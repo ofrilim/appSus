@@ -1,5 +1,6 @@
+// import {eventBus} from '../../../services/event-bus.service.js';
+
 import emailService from '../services/email-service.js';
-import emailStatus from './email-status.cmp.js';
 import emailSearch from './email-search.cmp.js';
 import emailMenu from './email-menu.cmp.js';
 import emailList from './email-list.cmp.js';
@@ -9,11 +10,9 @@ export default {
     name: 'emailApp',
     template: `
         <section class="email-app">
-            <h1>Root Page- Email App</h1>
-            <email-search @searchBy="setSearchBy"></email-search>
-            <email-status></email-status>
+            <email-search @searchBy="filterEmails"></email-search>
             <div class="app-container">
-                <email-menu></email-menu> 
+                <email-menu :unReadCount="countUnRead"></email-menu> 
                 <router-view :emails="emailsToShow"></router-view>
             </div>
         </section>
@@ -21,30 +20,47 @@ export default {
     data() {
         return {
             emails: [],
-            searchBy: null
+            emailsToShow: []
         }
     },
     created() {
         emailService.getEmails()
-            .then(res => {this.emails = res});
+            .then(res => {
+                this.emails = res;
+                this.emailsToShow = res;
+            });
     },
     methods: {
-        setSearchBy(searchBy) {
-            this.searchBy = searchBy;
+        filterEmails(searchBy) {
+            var filteredByTxt = this.emails.filter(email => {
+                return email.subject.toLowerCase().includes(searchBy.txt.toLowerCase()) ||
+                       email.from.toLowerCase().includes(searchBy.txt.toLowerCase())
+            });
+
+            var filtered;
+
+            switch(searchBy.options) {
+                case 'Read': 
+                    filtered = filteredByTxt.filter(email => email.isRead)
+                    break;
+                case 'Unread':
+                    filtered = filteredByTxt.filter(email => !email.isRead)
+                    break;
+                default:
+                    filtered = filteredByTxt
+            }
+            this.emailsToShow = filtered;
         }
     },
     computed: {
-        emailsToShow() {
-            if (!this.searchBy || this.searchBy.subject === '') return this.emails;
-            return this.emails.filter(email => {
-                return email.subject.toLowerCase().includes(this.searchBy.subject.toLowerCase()) ||
-                       email.from.toLowerCase().includes(this.searchBy.subject.toLowerCase())
-            })                          
+        countUnRead() {
+            return this.emails.reduce(function(acc , email) {
+                return acc + !email.isRead
+            }, 0)
         }
     },
     components: {
         emailList,
-        emailStatus,
         emailSearch,
         emailMenu
     }

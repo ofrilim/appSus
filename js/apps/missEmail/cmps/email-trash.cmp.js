@@ -9,12 +9,5 @@ export default {
             <h1>inside trash component!</h1>
         </section>
     `,
-    data() {
-        return {
-
-        }
-    },
-    created() {
-         
-    }
+   
 }

@@ -1,3 +1,5 @@
+// import {eventBus} from '../../../services/event-bus.service.js'
+
 import emailPreview from './email-preview.cmp.js'
 
 
@@ -11,10 +13,29 @@ export default {
             </ul>
         </section>
     `,
+    data() {
+        return {
+            // emails: []
+        }
+    },
     created() {
-        console.log('email is created:', this.emails)
+        // console.log('email is created:', this.emails)
+        // eventBus.$on('emailsToShow', emails => this.emails = emails);
+
     },
     components: {
         emailPreview        
     }
 }
+
+
+
+
+
+
+
+ // watch: {
+    //     '$route'() {
+    //         console.log('text')
+    //     } 
+    // },

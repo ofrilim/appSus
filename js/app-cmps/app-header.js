@@ -10,7 +10,7 @@ export default {
                 <router-link to="/">home</router-link> |
                 <router-link to="/books">miss-books</router-link> |
                 <router-link to="/keep">miss-keep</router-link> |
-                <router-link to="/email">miss-email</router-link> |
+                <router-link to="/email/inbox">miss-email</router-link> |
             </nav>
        </section>
     `, 
