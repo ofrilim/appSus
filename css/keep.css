@@ -10,8 +10,8 @@
   align-items: center;
   object-fit: cover;
 }
-.fas,
-.far {
+.controls .fas,
+.controls .far {
   font-size: 20px;
   cursor: pointer;
 }
@@ -19,8 +19,8 @@
   max-width: 100%;
   border: none;
 }
-.note{
-  font-family: "Lato", sans-serif;
+.note {
+  font-family: "arial", sans-serif;
   padding: 0;
   position: relative;
   width: 230px;
@@ -40,7 +40,7 @@
 }
 
 .note:hover {
-  box-shadow: 0 0 10px rgba(77, 100, 204, 0.5);
+  box-shadow: 0 0 10px rgb(125, 155, 170);
   transform: translate(0, -5px);
   z-index: 1;
 }
@@ -180,14 +180,24 @@
   text-align: center;
 }
 
-.note .active  {
+.note .active {
   background-color: orange;
 }
 
-.active{
+.active {
   background-color: orange;
 }
 
 .defalt {
   background-color: white;
+}
+
+.search {
+  width:235px;
+  padding: 5px;
+  display: flex;
+  margin: 0 auto;
+  padding: 8px;
+  font-size: inherit;
+  border: 1px solid rgb(243, 237, 237);
 }
