@@ -10,9 +10,9 @@ export default {
                 <p class="email-title" 
                     :class="[email.isRead? '' : 'bold', isOpen? 'clicked-email' : '']" 
                     @click="emailClicked">
-                    <i class="far fa-star " @click="starClicked" :class="email.isStar? 'coloredStar' :''"></i>
-                    {{email.from}}
-                    <span>{{email.subject}}</span><span class="small">{{email.body}}</span>
+                    <i class="far fa-star" @click="starClicked" :class="email.isStar? 'coloredStar' :''"></i>
+                    <span class="from">{{email.from}}</span>
+                    <span class="subject">{{email.subject}}</span><span class="small">{{email.body}}</span>
                     <span class="sentAt">
                     <i class="fas fa-envelope-open onHover" @click="changeToUnRead" v-if="email.isRead"></i>
                     <i class="fas fa-envelope onHover" v-else></i>

@@ -28,9 +28,10 @@ function createEmail(from, subject, body) {
 
 function createEmails() {
     return [createEmail('Jessica Landman', 'Sprint', 'Great aplication to develop!'),
-                  createEmail('Laura Espaniol', 'Dinner on Friday', 'Hey my Friend! It was great to see you! I wanted to invite you & Ishay for dinner in our place! Let me know if you will be available next Friday. Bessos!'),
-                  createEmail('Braz Dos Santos', 'Dancing in Brazil', 'Lorem ipsum long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has'),
-                  createEmail('Romina Hidalgo', 'Class', 'Mi nombre es Romina Hidalgo y soy Profesora de Zouk, bailarina y organizadora de eventos. Boenos Aires ZoukCongress 2015 del 9 al 12 de otubre bsasdancecongress@gmail.com Eventos: shows para fiestas de 15, casamientos, empresariales, promotoras, discos, etc Contacto: romina2106@gmail.com')];
+            createEmail('LinkedIn', 'Limor, see what your network has been up to!', 'See your updates 1 Notification from your network 1 new update Check out what you missed from Anton Lubenko and 0 others © 2019 LinkedIn Ireland Unlimited Company. LinkedIn, the LinkedIn logo, and InMail are registered trademarks of LinkedIn Corporation in the United States and/or other countries. All rights reserved. You are receiving Activity You Missed emails. Unsubscribe This email was intended for limor ofri (--). Learn why we included this. If you need assistance or have questions, please contact LinkedIn Customer Service. LinkedIn is a registered business name of LinkedIn Ireland Unlimited Company. Registered in Ireland as a private unlimited company, Company Number 477441 Registered Office: Wilton Plaza, Wilton Place, Dublin 2, Ireland'),
+            createEmail('Laura Espaniol', 'Dinner on Friday', 'Hey my Friend! It was great to see you! I wanted to invite you & Ishay for dinner in our place! Let me know if you will be available next Friday. Bessos!'),
+            createEmail('Braz Dos Santos', 'Dancing in Brazil', 'Lorem ipsum long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has'),
+            createEmail('Romina Hidalgo', 'Class', 'Mi nombre es Romina Hidalgo y soy Profesora de Zouk, bailarina y organizadora de eventos. Boenos Aires ZoukCongress 2015 del 9 al 12 de otubre bsasdancecongress@gmail.com Eventos: shows para fiestas de 15, casamientos, empresariales, promotoras, discos, etc Contacto: romina2106@gmail.com')]
 }
 
 function getEmails() {
