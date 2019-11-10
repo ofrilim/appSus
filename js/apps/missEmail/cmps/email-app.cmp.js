@@ -1,8 +1,8 @@
 import emailService from '../services/email-service.js';
-import emailList from './email-list.cmp.js';
 import emailStatus from './email-status.cmp.js';
 import emailSearch from './email-search.cmp.js';
 import emailMenu from './email-menu.cmp.js';
+import emailList from './email-list.cmp.js';
 
 
 export default {
@@ -11,12 +11,10 @@ export default {
         <section class="email-app">
             <h1>Root Page- Email App</h1>
             <email-search @searchBy="setSearchBy"></email-search>
+            <email-status></email-status>
             <div class="app-container">
-                <email-menu></email-menu>
-                <div class="search-list-container">
-                    <email-status></email-status>
-                    <email-list :emails="emailsToShow"></email-list>
-                </div>
+                <email-menu></email-menu> 
+                <router-view :emails="emailsToShow"></router-view>
             </div>
         </section>
     `,
@@ -28,7 +26,7 @@ export default {
     },
     created() {
         emailService.getEmails()
-            .then(res => {this.emails = res})
+            .then(res => {this.emails = res});
     },
     methods: {
         setSearchBy(searchBy) {

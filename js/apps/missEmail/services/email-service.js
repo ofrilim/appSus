@@ -3,6 +3,7 @@ import utilsService from "../../../services/utils-service.js";
 
 export default {
     getEmails,
+    createEmail
 }
 
 
@@ -10,14 +11,17 @@ const STORAGE_KEY = 'missEmailApp'
 
 
 var gEmails;
+var gNextId = Date.now();
 //  = createEmails();
 
 function createEmail(from, subject, body) {
     return {
+        id: gNextId++,
         from,
         subject,
         body,
         isRead: false, 
+        isStar: false,
         sentAt : getCurrTime()
     } 
 }
