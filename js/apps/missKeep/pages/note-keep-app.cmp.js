@@ -2,18 +2,15 @@
 import bus from '../services/event-bus.service.js'
 import keepService from '../services/note-service.js';
 import noteList from '../cmps/note-list.cmp.js'
-// import noteFilter from '../cmps/note-filter-cmp.js';
+import noteFilter from '../cmps/note-filter.cmp.js'
 import noteNew from '../cmps/dynamic-cmps/note-new.cmp.js';
 
 export default {
     template: `
     <section class="keep-home">
-        
-        <!-- <note-filter @filtered="setFilter"></note-filter> -->
+        <note-filter @filtered="setFilter"></note-filter>
         <note-new ></note-new>
-        
         <note-list :notes="notesToShow" @selected="selectNote"></note-list>
-        
     </section>  
     `,
     data() {
@@ -21,7 +18,7 @@ export default {
             notes: [],
             selectedtNote: null,
             currView: null,
-            // filter: null
+            filter: null
         }
     },
     created() {
@@ -40,6 +37,7 @@ export default {
             }),
             bus.$on('pinNote', noteId => {
                 keepService.pinNote(noteId);
+                
             }),
             bus.$on('saveNotes', () => {
                 keepService.store();
@@ -53,10 +51,10 @@ export default {
     computed: {
         notesToShow() {
             console.log('notesToShow - ', this.notes);
-            return this.notes;
-            // if (!this.filter)
-            // else return this.notes.filter(note =>
-            //     note.data.title.includes(this.filter.title))
+            if (!this.filter) return this.notes;
+            else return this.notes.filter(note =>{
+               if (note.data) return note.data.title.includes(this.filter.title)
+            })
         }
 
     },
@@ -68,14 +66,14 @@ export default {
             }
         },
 
-        // setFilter(filter) {
-        //     this.filter = filter;
-        // },
+        setFilter(filter) {
+            this.filter = filter;
+        },
 
     },
     components: {
         noteList,
-        // noteFilter,
+        noteFilter,
         noteNew
     }
 }

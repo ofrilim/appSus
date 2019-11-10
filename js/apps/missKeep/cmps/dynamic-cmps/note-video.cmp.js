@@ -2,7 +2,7 @@ import noteControls from "./note-controls.cmp.js";
 
 export default {
   template: `
-        <section class="note ">
+        <section class="note  ">
         <h1 v-if="currMode !== 'edit' && currMode !== 'new'"> {{note.data.title}} </h1>
         <h1 v-if="currMode === 'edit' || currMode === 'new'">
                 <input type="text" v-model="note.data.title" placeholder="Enter title"/>

@@ -4,7 +4,7 @@ const colorPicker = {
     props: ['colors'],
     template: `
     <div class="color-picker" @mouseleave="hideColorPicker" >
-        <div v-for="(color) in colors" :key="color">
+        <div :style="{'background-color': note.color}" v-for="(color) in colors" :key="color">
             <div class="color-circle" :style="{zIndex:'10', backgroundColor:'black'}" @click.stop="changeColor(color)" ></div>
             <!-- <div class="color-circle" :style="getClass(color)" @click.stop="changeColor(color)" ></div> -->
         </div>
@@ -26,22 +26,24 @@ const colorPicker = {
 export default {
     template: `
         <section class="controls" v-if="currMode !== 'preview' && currMode !== 'new'">
-            <button v-if="currMode === 'list'" @click="deleteNote(note.id)" title="delete"> <i class="fas fa-trash-alt"> </i></button>
-            <button v-if="currMode === 'list'" @click="editNote(note.id)" title="edit"> <i class="fas fa-pencil-alt" ></i></button>
-            <button v-if="currMode === 'list'" @click="pinNote(note.id)" title="pin to starts"> <i class="fas fa-thumbtack"></i> </button>
-            <button  v-if="currMode === 'list'" @click="previewNote(note.id)" title="preview"> <i class="fas fa-expand"></i> </button>
-            <button v-if="currMode === 'list'" @mouseover="showColorPicker=!showColorPicker" title="Change color"><i class="fas fa-palette note-control-opt"></i></button>
-            <button  v-if="currMode === 'edit'" @click="saveNotes()" title="save changes" class="save-btn-control">Save changes </button>
+            <button v-if="currMode === 'list'" @click="deleteNote(note.id)" title="Delete"> <i class="fas fa-trash-alt"> </i></button>
+            <button v-if="currMode === 'list'" @click="editNote(note.id)" title="Edit"> <i class="fas fa-pencil-alt" ></i></button>
+            <button v-if="currMode === 'list'"  @click="pinNote(note.id)" title="Pin to starts">  <i class="fas fa-thumbtack"></i> </button>
+            <button  v-if="currMode === 'list'" @click="previewNote(note.id)" title="Preview"> <i class="fas fa-expand"></i> </button>
+            <button v-if="currMode === 'list'" @click="showColorPicker=!showColorPicker" title="Change color"><i class="fas fa-palette note-control-opt"></i></button>
+            <button  v-if="currMode === 'edit'" @click="saveNotes()" title="Save changes" class="save-btn-control">Save changes </button>
         </section>
     `,
     props: ['note', 'currMode'],
     components: {
-        colorPicker,    
+        colorPicker, 
+        bus   
     },
     data() {
         return {
             colors: ['CornflowerBlue', 'yellow', 'orange', 'PaleGreen', 'LightGoldenRodYellow', 'tomato', 'LightGray', 'LightPink', 'white'],
             showColorPicker: false,
+            isPinned: false
         }
     },
     created() {
@@ -61,6 +63,7 @@ export default {
             // console.log('delete', noteId);
         },
         pinNote(noteId) {
+            this.isPinned = !this.isPinned 
             bus.$emit('pinNote', noteId);
             // console.log('delete', noteId);
         },
@@ -69,7 +72,7 @@ export default {
             // console.log('delete', noteId);
         },
         changeColor(color) {
-            this.note.bgColor = color
+            this.note.color = color
             bus.$emit('saveNotes', this.note);
         },
         

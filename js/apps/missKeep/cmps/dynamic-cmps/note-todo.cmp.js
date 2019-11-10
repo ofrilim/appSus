@@ -14,7 +14,7 @@ export default {
                          {{txt}}
                         </p> 
                         <p v-if="currMode === 'edit' || currMode === 'new'">
-                          <textarea v-model="note.data.txt" placeholder="Enter text"> </textarea>
+                          <textarea class="text-area" v-model="note.data.txt" placeholder="Enter text" > </textarea>
                         </p>
                     </div>
 
@@ -29,15 +29,13 @@ export default {
         }
     },
     created() {
-        // console.log('note-txt created', this.note);
-        // console.log('note-txt created', this.currMode);
-        // this.title = note.data.title;
+
     },
     methods: {
        
     },
     components: {
         noteControls,
-        
+
     }
 }
