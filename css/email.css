@@ -14,7 +14,7 @@ input, textarea, select, button {
     font-size: 1rem;
     outline: none;
 }
-textarea {
+.compose-form textarea {
     width: 74vw;
     height: 40vh;
 }
@@ -47,7 +47,7 @@ button {
     transition: transform .9s;
 }
 .compose:hover, .email-title:hover {
-    background-color: rgb(243, 237, 237);
+    background-color: rgb(236, 245, 250);
     transform: scale(1.02);
 }
 .clicked-email {
