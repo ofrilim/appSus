@@ -10,7 +10,7 @@ export default {
     template: `
         <section  class="note-preview">
            
-            <h1>note preview</h1>
+            <h1>Preview</h1>
             <button @click="$router.push('/keep')"><i class="fas fa-angle-left"></i> Back</button>
             <component :is="note.noteType" :note="note" :curr-mode="'preview'" v-if="note">
             </component>

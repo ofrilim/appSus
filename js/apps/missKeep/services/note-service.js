@@ -85,7 +85,7 @@ function query() {
         color: 'lightgray',
         isPinned: false,
         data: {
-          title: "good song",
+          title: "Good song",
           src:
             "http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3"
         }
@@ -96,7 +96,7 @@ function query() {
         color: 'brown',
         isPinned: false,
         data: {
-          title: "video is working",
+          title: "Video is working",
           src: "http://techslides.com/demos/sample-videos/small.mp4"
         }
       },
@@ -106,7 +106,7 @@ function query() {
         color: 'blue',
         isPinned: false,
         data: {
-          title: "fun what",
+          title: "Fun what",
           src:
             "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Rick_Sanchez.png/160px-Rick_Sanchez.png"
         }
@@ -144,7 +144,7 @@ function query() {
         color: 'blue',
         isPinned: false,
         data: {
-          title: "angie",
+          title: "Angie",
           txt:
             "Angie, Angie When will those clouds all disappear Angie, Angi Where will it lead us from here With no loving in our soul And no money in our coat You cant say were satisfied But Angie, Angie"
         }

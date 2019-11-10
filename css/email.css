@@ -14,7 +14,7 @@ input, textarea, select, button {
     font-size: 1rem;
     outline: none;
 }
-textarea {
+.compose-form textarea {
     width: 74vw;
     height: 40vh;
 }

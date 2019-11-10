@@ -11,7 +11,7 @@ import noteVideo from '../dynamic-cmps/note-video.cmp.js'
 export default {
     template: `
         <section class="note-edit" v-if="note">
-            <h1>note Edit</h1>
+            <h1>Edit</h1>
             <button @click="$router.push('/keep')"><i class="fas fa-angle-left"></i> Back</button>
             <component :is="note.noteType" :note="note" :curr-mode="'edit'" v-if="note"></component>
         

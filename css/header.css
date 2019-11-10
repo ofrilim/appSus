@@ -1,24 +1,51 @@
 .app-title {
-    display: flex;
-
-    font-size: 50px;
-    color: rgb(125, 155, 170)
+  display: flex;
+  font-size: 50px;
+  color: rgb(125, 155, 170);
 }
 
 .app-header a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.3em;
+  text-decoration: none;
+  color: white;
+  font-size: 1.3em;
 }
-.app-header nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: rgb(63, 63, 63);
-    height: 100px;
-    color: whitesmoke;
-    font-family: lato, sans-serif;
-    width: 100%;
+
+.app-title-logo {
+  display: flex;
+  padding: 5px;
+  align-items: center;
+}
+.app-title-logo img {
+  display: flex;
+  padding: 5px;
+}
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(63, 63, 63);
+  color: whitesmoke;
+  font-family: lato, sans-serif;
+  width: 100%;
+}
+
+.app-title-content {
+  width: 40vw;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.nav-icon {
+    display: none;
 }
 
 
+@media (max-width: 650px) {
+  .app-title-content {
+    display: none;
+  }
+  .nav-icon {
+      display: block;
+  }
+}
