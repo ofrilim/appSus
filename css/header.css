@@ -1,3 +1,8 @@
+.app-title {
+    font-size: 50px;
+    color: rgb(125, 155, 170)
+}
+
 .app-header a {
     text-decoration: none;
     color: white;
@@ -13,4 +18,5 @@
     font-family: lato, sans-serif;
     width: 100%;
 }
+
 

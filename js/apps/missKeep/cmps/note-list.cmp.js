@@ -9,15 +9,12 @@ import noteVideo from './dynamic-cmps/note-video.cmp.js'
 
 export default {
     props: ['notes'],
-    
     template: `
         <section class="note-list">
-            <component v-for="(note, idx) in notes" :is="note.noteType" :key="note.id" :note="note" :curr-mode="'list'">
+            <component v-for="(note, idx) in notes"  :is="note.noteType" :key="note.id" :note="note" :curr-mode="'list'" :class="{active: note.isPinned}">
             </component> 
         </section>
     `,
-    created() {
-    },
     methods: {
         noteSelected(noteId) {
             this.$emit('selected', noteId);

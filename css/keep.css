@@ -3,8 +3,6 @@
   src: url("../fonts/Roboto/Roboto-Black.ttf");
 }
 
-
-
 .notes-new {
   display: flex;
   flex-direction: column;
@@ -12,18 +10,17 @@
   align-items: center;
   object-fit: cover;
 }
-.fas, .far {
+.fas,
+.far {
   font-size: 20px;
   cursor: pointer;
-
-
 }
 .note audio {
   max-width: 100%;
   border: none;
 }
 .note{
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   padding: 0;
   position: relative;
   width: 230px;
@@ -31,13 +28,21 @@
   margin: 10px;
   overflow: hidden;
   border: 1px solid rgba(194, 194, 194, 0.322);
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   object-fit: contain;
+  transition: 0.3s ease;
+  transition: all 0.3s ease;
+}
 
+.note:hover {
+  box-shadow: 0 0 10px rgba(77, 100, 204, 0.5);
+  transform: translate(0, -5px);
+  z-index: 1;
 }
 .img-small {
   max-width: 160px;
@@ -50,25 +55,21 @@
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-around;
-
 }
 .note-preview {
-  padding:10px;
-
-
+  padding: 10px;
 }
 
-.note button{
+.note button {
   background: none;
   border: none;
   outline: none;
   transition: all 0.5s;
   color: rgb(68, 68, 68);
   flex-grow: 1;
-
 }
 
-.note button:hover{
+.note button:hover {
   background: rgba(145, 145, 145, 0.863);
   border: none;
   outline: none;
@@ -89,14 +90,14 @@
 
 .note p {
   max-width: 100%;
-  padding:8px
+  padding: 8px;
 }
 
 .note-vid {
   max-width: 100%;
 }
 
-.notes-new button{
+.notes-new button {
   border-radius: 2px;
   background: none;
   border: none;
@@ -106,41 +107,39 @@
   min-width: 50px;
   min-height: 50px;
   transition: all 0.5s;
- 
 }
 
-.notes-new button:hover{
+.notes-new button:hover {
   background: #3b3b3b;
   color: white;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
-  
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
-.note-preview > h1, .note-edit > h1{
+.note-preview > h1,
+.note-edit > h1 {
   text-align: center;
   font-size: 1.8rem;
   color: rgb(170, 155, 155);
   margin: 0 0 60 0;
-  padding-top: 20px;  
-
-  
+  padding-top: 20px;
 }
 
-.note-preview .note,  .note-edit .note{
+.note-preview .note,
+.note-edit .note {
   margin: 0 auto;
   max-width: 500px;
   width: 100%;
 }
 
-
-.note-preview, .note-edit{
+.note-preview,
+.note-edit {
   text-align: center;
 }
 
-
-
-.note-preview > button, .note-edit > button{
-  background:none;
+.note-preview > button,
+.note-edit > button {
+  background: none;
   border: none;
   outline: none;
   transition: all 0.5s;
@@ -152,36 +151,43 @@
   padding: 15px 30px;
 }
 
-.note-preview > button:hover, .note-edit > button:hover{
+.note-preview > button:hover,
+.note-edit > button:hover {
   background: rgba(145, 145, 145, 0.863);
   border: none;
   outline: none;
   color: white;
 }
 
-
 .note .controls .save-btn-control {
   font-size: 1.1rem;
 }
 
-
-.note input[type=text]{ 
+.note input[type="text"] {
   width: 80%;
   text-align: center;
 }
 
-
-.text-area { 
+.text-area {
   width: 100%;
 }
 
-
-
-.pinned {
-  background-color: orange
+.notes-filter {
+  margin: 25px 0 0 0;
 }
 
-.light {
-  background-color: #e9e9e942
+.notes-new {
+  text-align: center;
+}
 
+.note .active  {
+  background-color: orange;
+}
+
+.active{
+  background-color: orange;
+}
+
+.defalt {
+  background-color: white;
 }
