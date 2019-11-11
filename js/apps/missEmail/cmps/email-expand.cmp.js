@@ -1,7 +1,6 @@
 import emailService from '../services/email-service.js';
 
 
-
 export default {
     name: 'emailExpand',
     template: `

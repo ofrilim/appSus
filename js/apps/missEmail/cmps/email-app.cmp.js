@@ -1,5 +1,3 @@
-// import {eventBus} from '../../../services/event-bus.service.js';
-
 import emailService from '../services/email-service.js';
 import emailSearch from './email-search.cmp.js';
 import emailMenu from './email-menu.cmp.js';

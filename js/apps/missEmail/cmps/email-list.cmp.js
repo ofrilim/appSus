@@ -1,5 +1,3 @@
-// import {eventBus} from '../../../services/event-bus.service.js'
-
 import emailPreview from './email-preview.cmp.js'
 
 
@@ -13,27 +11,7 @@ export default {
             </ul>
         </section>
     `,
-    data() {
-        return {
-            // emails: []
-        }
-    },
-    created() {
-
-    },
     components: {
         emailPreview        
     }
 }
-
-
-
-
-
-
-
- // watch: {
-    //     '$route'() {
-    //         console.log('text')
-    //     } 
-    // },

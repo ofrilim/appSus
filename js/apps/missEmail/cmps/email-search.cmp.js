@@ -21,22 +21,10 @@ export default {
             }
         }
     },
-    // created() {
-    //     this.$emit('searchBy', this.searchBy);
-    // },
+    
     methods: {
         onFilterEmails() {
             this.$emit('searchBy', this.searchBy)
-            console.log(this.searchBy)
         }
-    },
-    computed: {
-
-    },
-    watch: {
-        
-    },
-    components: {
-        
     }
 }

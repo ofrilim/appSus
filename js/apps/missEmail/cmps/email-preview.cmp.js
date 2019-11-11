@@ -22,7 +22,7 @@ export default {
                 <div v-show="isOpen">
                     <div class="email-content-header">
                         <h3>{{email.subject}}</h3>
-                        <router-link :to="'/email/expand/' + email.id"><i class="fas fa-expand" @click="expandEmail"></i></router-link>
+                        <router-link :to="'/email/expand/' + email.id"><i class="fas fa-expand"></i></router-link>
                     </div>
                     <div class="email-content">
                         <p>{{email.from}} <span class="small"><{{email.from}}@gmail.com></span></p>
@@ -38,9 +38,6 @@ export default {
             isOpen: false,
         }
     },
-    created() {
-         
-    },
     methods: {
         emailClicked() {
             this.isOpen = !this.isOpen;
@@ -52,7 +49,6 @@ export default {
         starClicked() {
             this.email.isStar = !this.email.isStar;
             emailService.updateStorage()
-            console.log(this.email.isStar)
         },
         changeToUnRead() {
             this.email.isRead = false;
@@ -60,19 +56,6 @@ export default {
         },
         deleteMail() {
             emailService.deleteEmail(this.email.id)
-        },
-        expandEmail() {
-            console.log('email expand clicked!')
-
         }
-    },
-    computed: {
-
-    },
-    watch: {
-        
-    },
-    components: {
-        
     }
 }

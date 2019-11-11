@@ -1,7 +1,6 @@
 import emailService from '../services/email-service.js';
 
 
-
 export default {
     name: 'emailCompose',
     template: `
@@ -22,22 +21,10 @@ export default {
             newEmail: emailService.createEmail()
         }
     },
-    created() {
-    },
     methods: {
         saveEmail() {
-            console.log('email saved.....' ,this.newEmail)
             emailService.addNewEmail(this.newEmail)
             this.$router.push('/email/inbox')
         },
-    },
-    computed: {
-        
-    },
-    watch: {
-        
-    },
-    components: {
-        
     }
 }
