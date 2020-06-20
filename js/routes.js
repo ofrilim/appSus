@@ -6,12 +6,10 @@ import emailList from './apps/missEmail/cmps/email-list.cmp.js';
 import emailCompose from './apps/missEmail/cmps/email-compose.cmp.js';
 import emailExpand from './apps/missEmail/cmps/email-expand.cmp.js';
 import emailTrash from './apps/missEmail/cmps/email-trash.cmp.js';
+import emailStarred from './apps/missEmail/cmps/email-starred.cmp.js';
 import notePreview from './apps/missKeep/cmps/note-preview.cmp.js'
 import noteEdit from './apps/missKeep/cmps/dynamic-cmps/note-edit.cmp.js'
 import home from './app-cmps/home.cmp.js'
-
-
-
 
 
 const myRoutes = [
@@ -52,6 +50,10 @@ const myRoutes = [
                 component: emailTrash
             },
             {
+                path: 'starred',
+                component: emailStarred
+            },
+            {
                 path: 'expand/:id',
                 component: emailExpand
             }
@@ -59,8 +61,5 @@ const myRoutes = [
     }
 ]
 
-
-
 const myRouter = new VueRouter({ routes: myRoutes });
-
 export default myRouter;

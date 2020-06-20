@@ -1,6 +1,5 @@
 import utilsService from "../../../services/utils-service.js";
 
-
 export default {
     getEmails,
     createEmail,
@@ -22,6 +21,7 @@ function createEmail(from, subject, body) {
         body,
         isRead: false, 
         isStar: false,
+        isTrashed: false,
         sentAt : getCurrTime()
     } 
 }
@@ -39,33 +39,32 @@ function createEmails() {
             createEmail('Eventbrite‏', 'Don\'t miss this new event by she codes on Nov 17!‏', 'she codes; just announced a new event and we wanted to make sure you were the first to know! she codes; Big Data, AWS, Server-Less Sunday, November 17, 2019 at 6:30 PM 10 Ha-Gavish Street - Netanya - Israel View Event Don’t forget to follow your favorite organizers on Eventbrite to hear about their upcoming events before anyone else. Enjoy!'),
             createEmail('Romina Hidalgo', 'Class', 'Mi nombre es Romina Hidalgo y soy Profesora de Zouk, bailarina y organizadora de eventos. Boenos Aires ZoukCongress 2015 del 9 al 12 de otubre bsasdancecongress@gmail.com Eventos: shows para fiestas de 15, casamientos, empresariales, promotoras, discos, etc Contacto: romina2106@gmail.com')]
 }
-
 function getEmails() {
-    var emails = utilsService.loadFromStorage(STORAGE_KEY)
+    let emails = utilsService.loadFromStorage(STORAGE_KEY)
     if(!emails || emails.length === 0) {
         emails = createEmails();
         utilsService.saveToStorage(STORAGE_KEY, emails)
     }
-    gEmails = emails
+    gEmails = emails;
     window.emails = gEmails;
     return Promise.resolve(gEmails)
 }
-
 function addNewEmail(email) {
     gEmails.unshift(email);
     updateStorage()
 }
-
 function deleteEmail(emailId) {
     var emailIdx = gEmails.findIndex(email => email.id === emailId)
     gEmails.splice(emailIdx, 1)
     updateStorage()
 }
-
 function getEmailById(emailId) {
     var emailToExpand = gEmails.find(email => email.id === emailId)
     return Promise.resolve(emailToExpand);
 }
+
+
+
 
 function updateStorage() {
     utilsService.saveToStorage(STORAGE_KEY, gEmails)

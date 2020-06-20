@@ -11,21 +11,21 @@ export default {
             <email-search @searchBy="filterEmails"></email-search>
             <div class="app-container">
                 <email-menu :unReadCount="countUnRead"></email-menu> 
-                <router-view :emails="emailsToShow"></router-view>
+                <router-view :emails="emailsToShow" :starred="starredEmails" :trash="trashEmails"></router-view>
             </div>
         </section>
     `,
     data() {
         return {
             emails: [],
-            emailsToShow: []
+            emailsToShow: [],
         }
     },
     created() {
         emailService.getEmails()
             .then(res => {
                 this.emails = res;
-                this.emailsToShow = res;
+                this.emailsToShow = res.filter(email => !email.isTrashed);
             });
     },
     methods: {
@@ -55,6 +55,12 @@ export default {
             return this.emails.reduce(function(acc , email) {
                 return acc + !email.isRead
             }, 0)
+        },
+        starredEmails() {
+            return this.emails.filter(email => email.isStar)
+        },
+        trashEmails() {
+            return this.emails.filter(email => email.isTrashed)
         }
     },
     components: {

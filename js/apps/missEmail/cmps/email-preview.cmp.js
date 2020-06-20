@@ -16,7 +16,7 @@ export default {
                     <span class="sentAt">
                     <i class="fas fa-envelope-open onHover" @click="changeToUnRead" v-if="email.isRead"></i>
                     <i class="fas fa-envelope onHover" v-else></i>
-                    <i class="fas fa-trash onHover" @click="deleteMail"></i>
+                    <i class="fas fa-trash onHover" @click="trashClicked"></i>
                     {{email.sentAt}}</span>
                 </p>
                 <div v-show="isOpen">
@@ -54,8 +54,11 @@ export default {
             this.email.isRead = false;
             emailService.updateStorage()
         },
-        deleteMail() {
-            emailService.deleteEmail(this.email.id)
+        trashClicked() {
+            this.email.isTrashed = true;
+            emailService.updateStorage()
+            // this.$emit('moveToTrash', this.email)
+            // emailService.deleteEmail(this.email.id)
         }
     }
 }

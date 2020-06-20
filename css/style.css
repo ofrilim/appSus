@@ -1,24 +1,23 @@
-@import url('./keep.css');
-@import url('./header.css');
-
-@import url('./email.css');
+@import url("./keep.css");
+@import url("./header.css");
+@import url("./email.css");
 
 @font-face {
     font-family: Roboto;
     src: url("../fonts/Roboto/Roboto-Black.ttf");
-  }
+}
 
-  body {
-      margin:0 auto;
-      color:#2d2d2e;
-  }
+body {
+    margin: 0 auto;
+    color: #2d2d2e;
+}
 
-  .nav-drawer {
+.nav-drawer {
     width: 48px;
     border-radius: 50px;
     font-size: 20px;
     position: relative;
-    transition: .3s ease;
+    transition: 0.3s ease;
 }
 
 .nav-drawer nav {
@@ -33,7 +32,7 @@
     border-radius: 8px;
     padding: 20px;
     flex-direction: row;
-    transition: .3s ease;
+    transition: 0.3s ease;
     display: flex;
 }
 
@@ -45,7 +44,7 @@
     font-size: 14px;
     padding: 10px;
     text-decoration: none;
-    transition: all .8s ease;
+    transition: all 0.8s ease;
     border: 1px solid transparent;
 }
 
@@ -62,7 +61,6 @@
     text-underline-position: above;
     color: black;
 }
-
 
 .apps-container-nav {
     width: 300px;
@@ -86,7 +84,6 @@
     border: 1px solid rgb(7, 6, 6, 0.3);
 }
 
-
 .background-color {
     color: #fff;
 }
@@ -94,7 +91,7 @@
 .home-main {
     width: 100vw;
     height: 100vh;
-    background-image: url("../img/back.jpg"); 
-     background-repeat: no-repeat;
+    background-image: url("../img/back.jpg");
+    background-repeat: no-repeat;
     background-size: cover;
 }
