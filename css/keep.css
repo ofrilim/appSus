@@ -25,7 +25,7 @@
   position: relative;
   width: 230px;
   background: #e9e9e942;
-  margin: 10px;
+  margin: 0px auto 20px;
   overflow: hidden;
   border: 1px solid rgba(194, 194, 194, 0.322);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
@@ -38,9 +38,7 @@
   transition: 0.3s ease;
   transition: all 0.3s ease;
   break-inside: avoid;
-
 }
-
 .note-audio {
   height: 100px;
 }
@@ -48,21 +46,22 @@
   box-shadow: 0 0 10px rgb(125, 155, 170);
   transform: translate(0, -5px);
   z-index: 1;
-  
 }
 .img-small {
   max-width: 160px;
   max-height: 200px;
 }
-
 .note-list {
+  padding: 0px 10px;
   column-count: 5;
 }
+
 @media (max-width: 850px) {
   .note-list {
     column-count: 3;
   }
 }
+
 @media (max-width: 650px) {
   .note-list {
     column-count: 2;
@@ -72,7 +71,6 @@
 .note-preview {
   padding: 10px;
 }
-
 .note button {
   background: none;
   border: none;
@@ -81,14 +79,12 @@
   color: rgb(68, 68, 68);
   flex-grow: 1;
 }
-
 .note button:hover {
   background: rgba(145, 145, 145, 0.863);
   border: none;
   outline: none;
   color: white;
 }
-
 .note h1 {
   margin: 0;
   padding: 0;
@@ -100,16 +96,13 @@
   align-self: stretch;
   color: rgb(68, 68, 68);
 }
-
 .note p {
   max-width: 100%;
   padding: 8px;
 }
-
 .note-vid {
   max-width: 100%;
 }
-
 .notes-new button {
   border-radius: 2px;
   background: none;
@@ -121,14 +114,12 @@
   min-height: 50px;
   transition: all 0.5s;
 }
-
 .notes-new button:hover {
   background: #3b3b3b;
   color: white;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
-
 .note-preview > h1,
 .note-edit > h1 {
   text-align: center;
@@ -137,19 +128,16 @@
   margin: 0 0 60 0;
   padding-top: 20px;
 }
-
 .note-preview .note,
 .note-edit .note {
   margin: 0 auto;
   max-width: 500px;
   width: 100%;
 }
-
 .note-preview,
 .note-edit {
   text-align: center;
 }
-
 .note-preview > button,
 .note-edit > button {
   background: none;
@@ -163,7 +151,6 @@
   margin-bottom: 20px;
   padding: 15px 30px;
 }
-
 .note-preview > button:hover,
 .note-edit > button:hover {
   background: rgba(145, 145, 145, 0.863);
@@ -171,40 +158,31 @@
   outline: none;
   color: white;
 }
-
 .note .controls .save-btn-control {
   font-size: 1.1rem;
 }
-
 .note input[type="text"] {
   width: 80%;
   text-align: center;
 }
-
 .text-area {
   width: 100%;
 }
-
 .notes-filter {
   margin: 25px 0 0 0;
 }
-
 .notes-new {
   text-align: center;
 }
-
 .note .active {
   background-color: orange;
 }
-
 .active {
   background-color: orange;
 }
-
 .defalt {
   background-color: white;
 }
-
 .search {
   width:235px;
   padding: 5px;
@@ -214,7 +192,6 @@
   font-size: inherit;
   border: 1px solid rgb(243, 237, 237);
 }
-
 .color-input {
   position: absolute;
   bottom: 10000px;

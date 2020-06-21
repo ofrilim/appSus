@@ -5,7 +5,7 @@ export default {
     template: `
     <section class="email-menu">
 
-        <router-link to="/email/compose"><div class="compose"><i class="fas fa-plus"></i>Compose</div></router-link>
+        <router-link to="/email/compose"><div class="compose"><i class="fas fa-plus"></i><span class="compose-word">Compose</span></div></router-link>
         <ul class="menu-options">
             <router-link to="/email/inbox"><li class="inbox"><i class="fas fa-inbox"></i>Inbox
             <span class="email-status">({{unReadCount}})</span>

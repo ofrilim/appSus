@@ -1,5 +1,4 @@
 // import appHeader from './app-cmps/app-header.js';
-import missBooks from './apps/missBooks/cmps/book-app.cmp.js';
 import missKeep from './apps/missKeep/pages/note-keep-app.cmp.js'
 import emailApp from './apps/missEmail/cmps/email-app.cmp.js';
 import emailList from './apps/missEmail/cmps/email-list.cmp.js';
@@ -16,10 +15,6 @@ const myRoutes = [
     {
         path: '/',
         component: home
-    },
-    {
-        path: '/books',
-        component: missBooks
     },
     {
         path: '/keep',

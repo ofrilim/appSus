@@ -21,12 +21,6 @@ export default {
                             Keep
                         </router-link>
                     </div>
-                    <div class="app-container-nav">
-                        <router-link to="/books" class="nb-link" title="Books">
-                            <i class="fas fa-book"></i>
-                            Books
-                        </router-link>
-                    </div>
                 </nav>
             </div>
         `,
